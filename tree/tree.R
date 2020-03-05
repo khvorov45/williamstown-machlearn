@@ -40,9 +40,11 @@ add_predicted <- function(tree, newdata) {
     )
 }
 
-plot_scatter_acc <- function(preds) {
+plot_scatter_acc <- function(preds,
+                             x_name = "los_predicted",
+                             y_name = "los_real") {
   preds %>%
-    ggplot(aes(los_predicted, los_real)) +
+    ggplot(aes(!!rlang::sym(x_name), !!rlang::sym(y_name))) +
     dark_theme_bw(verbose = FALSE) +
     geom_jitter()
 }
