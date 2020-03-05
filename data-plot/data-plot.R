@@ -28,6 +28,13 @@ plot_hist <- function(dat) {
     geom_histogram(binwidth = 0.5)
 }
 
+plot_scatter <- function(dat) {
+  dat %>%
+    ggplot(aes(age, los, col = sex)) +
+    dark_theme_bw(verbose = FALSE) +
+    geom_point()
+}
+
 save_plot <- function(plot, name) {
   ggsave_dark(
     file.path(data_plot_dir, glue::glue("{name}.pdf")),
@@ -41,3 +48,6 @@ save_plot <- function(plot, name) {
 sim_nomiss <- read_data("sim-nomiss")
 los <- plot_hist(sim_nomiss)
 save_plot(los, "nomiss-los")
+
+sct <- plot_scatter(sim_nomiss)
+save_plot(sct, "nomiss-sct")
