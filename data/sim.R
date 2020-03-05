@@ -13,7 +13,8 @@ sim_dat <- function(n = 1000) {
   tibble(
     age = runif(n, 20, 80),
     male = as.integer(rbern(n, 0.5)),
-    log_los = 1 + 0.03 * age + 0.02 * male - 0.01 * age * male
+    log_los_exp = 1 + 0.03 * age + 0.02 * male - 0.01 * age * male,
+    log_los = rnorm(n, log_los_exp, sd = 0.1)
   )
 }
 
