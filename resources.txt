@@ -1,0 +1,9 @@
+# R as a tool for data analysis
+
+R for data science
+https://r4ds.had.co.nz/
+
+# R as a language
+
+Advanced R
+https://adv-r.hadley.nz/
