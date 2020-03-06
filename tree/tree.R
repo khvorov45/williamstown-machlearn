@@ -74,7 +74,7 @@ save_tree(tree_nomiss, "nomiss")
 tree_miss <- rpart(los ~ age + sex, sim_miss)
 save_tree(tree_nomiss, "miss")
 
-# Predictions
+# Predictions ?predict.rpart
 sim_nomiss_test <- read_data_test("sim-nomiss-test")
 sim_miss_test <- read_data_test("sim-miss-test")
 
