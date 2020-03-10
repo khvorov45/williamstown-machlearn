@@ -2,7 +2,6 @@
 # Arseniy Khvorov
 
 library(tidyverse)
-library(ggdark) # devtools::install_github("khvorov45/ggdark")
 
 # Directories used
 data_dir <- "data"
@@ -24,21 +23,21 @@ read_data <- function(name) {
 plot_hist <- function(dat) {
   dat %>%
     ggplot(aes(los)) +
-    dark_theme_bw(verbose = FALSE) +
+    theme_bw() +
     geom_histogram(binwidth = 0.5)
 }
 
 plot_scatter <- function(dat) {
   dat %>%
     ggplot(aes(age, los, col = sex)) +
-    dark_theme_bw(verbose = FALSE) +
+    theme_bw() +
     geom_point()
 }
 
 save_plot <- function(plot, name) {
-  ggsave_dark(
+  ggsave(
     file.path(data_plot_dir, glue::glue("{name}.pdf")),
-    plot, dark = FALSE,
+    plot,
     width = 7.5, height = 7.5, units = "cm"
   )
 }

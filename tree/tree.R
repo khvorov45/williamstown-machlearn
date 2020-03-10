@@ -2,7 +2,6 @@
 # Arseniy Khvorov
 
 library(tidyverse)
-library(ggdark) # devtools::install_github("khvorov45/ggdark")
 library(rpart)
 library(rpart.plot)
 
@@ -46,14 +45,14 @@ plot_scatter_acc <- function(preds,
                              y_name = "los_real") {
   preds %>%
     ggplot(aes(!!rlang::sym(x_name), !!rlang::sym(y_name))) +
-    dark_theme_bw(verbose = FALSE) +
+    theme_bw() +
     geom_jitter()
 }
 
 save_plot <- function(plot, name) {
-  ggsave_dark(
+  ggsave(
     file.path(tree_dir, glue::glue("{name}.pdf")),
-    plot, dark = FALSE,
+    plot,
     width = 7.5, height = 7.5, units = "cm"
   )
 }
