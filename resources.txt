@@ -7,3 +7,8 @@ https://r4ds.had.co.nz/
 
 Advanced R
 https://adv-r.hadley.nz/
+
+# Interfacing with databases
+
+dbplyr package documentation
+https://dbplyr.tidyverse.org/
