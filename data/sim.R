@@ -23,19 +23,19 @@ cond_missing <- function(vec, pna, naval) {
 }
 
 add_miss <- function(dat, pna = 0.2) {
-  dat %>%
-    mutate(
-      age = cond_missing(age, pna, NA_real_),
-      male = cond_missing(male, pna, NA_integer_)
-    )
+  mutate(
+    dat,
+    age = cond_missing(age, pna, NA_real_),
+    male = cond_missing(male, pna, NA_integer_)
+  )
 }
 
-reformat_vars <- function(dat) {
-  dat %>%
-    mutate(
-      sex = if_else(male == 1L, "male", "female"),
-      los = as.integer(exp(log_los))
-    )
+add_vars <- function(dat) {
+  mutate(
+    dat,
+    sex = if_else(male == 1L, "male", "female"),
+    los = as.integer(exp(log_los))
+  )
 }
 
 save_data <- function(dat, name) {
@@ -50,8 +50,6 @@ gen_dat <- function(n, pna, name) {
 }
 
 # Script ======================================================================
-
-example <- sim_dat(15) %>% reformat_vars()
 
 gen_dat(1e3, 0, "sim-nomiss")
 gen_dat(1e3, 0.5, "sim-miss")
