@@ -45,6 +45,7 @@ save_plot <- function(plot, name) {
 # Script ======================================================================
 
 sim_nomiss <- read_data("sim-nomiss")
+
 los <- plot_hist(sim_nomiss)
 save_plot(los, "nomiss-los")
 
