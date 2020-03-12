@@ -45,7 +45,7 @@ save_data <- function(dat, name) {
 gen_dat <- function(n, pna, name) {
   sim_dat(n) %>%
     add_miss(pna) %>%
-    reformat_vars() %>%
+    add_vars() %>%
     save_data(name)
 }
 
